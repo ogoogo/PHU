@@ -60,6 +60,21 @@ void loop(){
 
 void linetrace(){
 //ライントレース
+    goStraightALittle();
+
+    if(digitalRead(LTRIGHT)==LOW && digitalRead(LTLEFT)==HIGH){
+        digitalWrite(IN1R, HIGH);
+        digitalWrite(IN2R, LOW);
+        digitalWrite(IN1L, LOW);
+        digitalWrite(IN2L, HIGH);
+        delay(500);
+    }else if(digitalRead(LTRIGHT)==HIGH && digitalRead(LTLEFT)==LOW){
+        digitalWrite(IN1R, LOW);
+        digitalWrite(IN2R, HIGH);
+        digitalWrite(IN1L, HIGH);
+        digitalWrite(IN2L, LOW);
+        delay(500);
+    }
 }
 
 void ohajiki(){
@@ -68,6 +83,19 @@ void ohajiki(){
 
 void turn(int u){
     //1だったら右に、3だったら左に回転
+    if (u==1){
+        digitalWrite(IN1R, HIGH);
+        digitalWrite(IN2R, LOW);
+        digitalWrite(IN1L, LOW);
+        digitalWrite(IN2L, HIGH);
+        delay(1000);
+    }else if(u==3){
+        digitalWrite(IN1R, LOW);
+        digitalWrite(IN2R, HIGH);
+        digitalWrite(IN1L, HIGH);
+        digitalWrite(IN2L, LOW);
+        delay(1000);
+    }
 
 }
 void uTurn(){
